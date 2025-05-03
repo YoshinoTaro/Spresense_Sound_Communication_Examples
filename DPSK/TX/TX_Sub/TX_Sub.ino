@@ -34,6 +34,7 @@ unsigned int changeDuty() {
   if (count == samples_per_cycle) count = 0;
   if (b_invert && count == samples_per_cycle / 4) {
     count += samples_per_cycle/2;
+    if (count >= samples_per_cycle) count -= samples_per_cycle;
     b_invert = false;
   }
   return timer_interval_us;
